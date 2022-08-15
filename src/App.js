@@ -13,7 +13,7 @@ function App() {
     {
       id: 2,
       text: "Meeting at School",
-      day: "Feb 6th a `:30pm",
+      day: "Feb 6th a 1:30pm",
       reminder: true,
     },
     {
@@ -23,10 +23,16 @@ function App() {
       reminder: false,
     },
   ]);
+
+  // Delete Task
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+
   return (
     <div className="container">
       <Header />
-      <Tasks tasks={tasks} />
+      <Tasks tasks={tasks} onDelete={deleteTask} />
     </div>
   );
 }
